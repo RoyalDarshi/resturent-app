@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import FormComponent from "./components/FormComponent";
+import ListComponent from "./components/ListComponent";
+import {useState} from "react";
 
 function App() {
+    const [bill, setBill] = useState({});
+    const addBill=(newBill)=>{
+        setBill(newBill)
+    }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <FormComponent addBill={addBill} />
+        <ListComponent bill={bill} />
     </div>
   );
 }
